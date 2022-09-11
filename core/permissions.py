@@ -36,16 +36,18 @@ class ProjectCustomPermission(BasePermission):
 
 class TaskCustomPermission(BasePermission):
     """
-    Custom permission class to check if user is a project manager or
-    a member of project who is accessing the objects via safe methods
+    Custom permission class to check if user is an author of a task
+    or a project manager
 
     behaviors:
         - Super user has full control
-        - Allow any authinticated user to init a new project
         - Owner(project manager) has full control
-        - Readonly access for members(developers)
+        - Author(PM or DEV who created the task) has full control
+        - Readonly access for members
+        - Assignees has partial control, they can't delete a task
+          but they can update the fields such as status
     """
-    
+
     def has_permission(self, request, view):
         if request.user.is_authenticated:
             return True
