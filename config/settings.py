@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 LOCAL_APPS = [
     'core',
+    'user',
 ]
 
 THIRD_PARTY_APPS = [
