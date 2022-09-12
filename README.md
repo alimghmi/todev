@@ -1,7 +1,7 @@
 # todev
 
 ## Summary
-todev is a todo app with custom permission class defind for developers and project manager. They can collaborate with each other on different projects. Every authenticated user can create a project from scratch and become the project manager, add/remove members to/from the project.
+todev is a todo app with custom permission class defind for developers and project manager. They can collaborate with each other on different projects. Every authenticated user can create a project from scratch and become the project manager, add/remove developers to/from the project.
 
 ## ERD
 ![todev ERD](https://github.com/alimghmi/todev/blob/master/doc/todev.png)
@@ -55,7 +55,7 @@ Project endpoints:
 ```
 GET /projects/: Return list of projects for user which user is a project manager or a developer of
 
-POST /projets/: Create a new projet by providing the needed fields
+POST /projets/: Create a new project by providing the needed fields
 
 PUT /projects/<project_id_here>/: Update a project
 
@@ -67,9 +67,9 @@ Task endpoints:
 ```
 GET projects/<project_id_here>/tasks/: Get all of the tasks in a project
 
-GET projects/<project_id_here>/tasks/?user=me: Get all of current logged in user in a project
+GET projects/<project_id_here>/tasks/?user=me: Get tasks of current logged in user in a project
 
-GET projects/<project_id_here>/tasks/?user=john: Get all of the tasks of john in a porject
+GET projects/<project_id_here>/tasks/?user=<username>: Get all of the tasks of <username> in a porject
 
 POST /tasks/: Add a new tasks to a project
 
@@ -78,6 +78,22 @@ PUT /tasks/<task_id_here>/: Update a task
 DELETE /tasks/<task_id_here>/: Delete a task
 
 ```
+
+## Endpoints Behavior
+
+### Project Endpoint
+- Every authenticated user can create new project
+- Creator of project is considered as Project Manager
+- Proejc manager has full control over the project
+- Developers (members field) username must be sent on creation
+- Developers have readonly access thus they can't update or remove a project
+- Projects shows up when target user is either a project manager or a developer, otherwise they're not accessable
+  
+### Task Endpoint
+- Project manager has full control over task creation and assigning them to developers
+- A developer of project can add a task which will be automatically assigned to himself a.k.a developer doesn't have this right to assign other developers to a task he created
+- Author of task (project manager or developer) can update or delete the task
+- Assignees can update (delete not allowed) task status/name/description
 
 ## Recommended Improvements
 - Endpoints to calculate developers performance
