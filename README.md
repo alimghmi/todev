@@ -33,16 +33,16 @@ It's possible to test and examine the app within browser, which is provided by D
 
 
 ## Endpoints
-For further information please check **postman collection** of project, all necessarry fields of each endpoints are documented in details. Postman collection is available [here](https://github.com/alimghmi/todo/blob/master/todev/todev.postman_collection.json). 
+For further information please check **postman collection** of project, all necessarry fields of each endpoints are documented in details. Postman collection is available [here](https://github.com/alimghmi/todev/blob/master/todev/todev.postman_collection.json). 
 
-### User-related operations:
+User-related operations:
 ```
 POST /signup/: Create a new user
 
 POST /api/token/: Return access/refresh tokens to login
 ```
 
-### Project endpoints:
+Project endpoints:
 ```
 GET /projects/: Return list of projects for user which user is a project manager or a developer of
 
@@ -54,7 +54,7 @@ GET /projects/<project_id_here>/: Get a detailed view of a project
 
 DELETE /projects/<project_id_here>/: Delete a project
 ```
-### Task endpoints:
+Task endpoints:
 ```
 GET projects/<project_id_here>/tasks/: Get all of the tasks in a project
 
