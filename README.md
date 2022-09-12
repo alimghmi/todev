@@ -92,7 +92,7 @@ DELETE /tasks/<task_id_here>/: Delete a task
   
 ### Task Endpoint
 - Project manager has full control over task creation and assigning them to developers
-- A developer of project can add a task which will be automatically assigned to himself a.k.a developer doesn't have this right to assign other developers to a task he created
+- A developer of project can add a task which will be automatically assigned to himself a.k.a developer doesn't have this right to assign a task to other developers
 - Author of task (project manager or developer) can update or delete the task
 - Assignees can update (delete not allowed) task status/name/description
 
