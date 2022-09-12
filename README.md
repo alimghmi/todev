@@ -27,7 +27,7 @@ python3 manage.py runserver
 ```
 ### Notes: 
  - docker-compose takes care of env files automatically. Consider adding **env variables** for a better experience, in case of manual setup.
- - Please consider adding a *superuser* via django-admin command line or create a non-super user via `signup` endpoint. 
+ - Please consider adding a *superuser* or create a non-super user via `signup` endpoint. 
 
 ## Authorization
 Todev leverages simple-jwt. All functional endpoints of app (except login/signup) expect you to send a access token as Authorization in the header.
