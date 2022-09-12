@@ -3,9 +3,21 @@ from rest_framework import serializers
 from core import models
 
 
+class AuthorSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.User 
+        fields = ['id', 'username', 'email']
+
+
 class ProjectSerializer(serializers.ModelSerializer):
 
     owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    members = serializers.SlugRelatedField(
+        many=True,
+        slug_field='username',
+        queryset=models.User.objects.all()
+    )
 
     class Meta:
         model = models.Project
@@ -18,6 +30,11 @@ class ProjectSerializer(serializers.ModelSerializer):
 class CreateTaskSerializer(serializers.ModelSerializer):
 
     author = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    assignees = serializers.SlugRelatedField(
+        many=True,
+        slug_field='username',
+        queryset=models.User.objects.all()
+    )
 
     class Meta:
         model = models.Task
@@ -58,11 +75,17 @@ class CreateTaskSerializer(serializers.ModelSerializer):
 
 class UpdateTaskSerializer(serializers.ModelSerializer):
 
+    assignees = serializers.SlugRelatedField(
+        many=True,
+        slug_field='username',
+        queryset=models.User.objects.all()
+    )
+
     class Meta:
         model = models.Task
         fields = ['id', 'author', 'project', 'title', 
                   'description', 'status', 'assignees', 
-                  'author', 'updated_at', 'created_at']
+                  'updated_at', 'created_at']
         
         read_only_fields = ['author', 'updated_at', 'created_at']
 
@@ -85,7 +108,6 @@ class UpdateTaskSerializer(serializers.ModelSerializer):
 
         if is_member and not is_pm:
             data.pop('assignees', None)
-            # data['assignees'] = [self.context.get('request').user]
         else:
             for assignee in data['assignees']:
                 if assignee == self.context.get('request').user:
@@ -103,6 +125,9 @@ class UpdateTaskSerializer(serializers.ModelSerializer):
 
 
 class ReadTaskSerializer(serializers.ModelSerializer):
+
+    author = AuthorSerializer()
+    assignees = AuthorSerializer(many=True)
 
     class Meta:
         model = models.Task
