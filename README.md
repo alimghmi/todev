@@ -80,7 +80,7 @@ DELETE /tasks/<task_id_here>/: Delete a task
 ```
 
 ## Recommended Improvements
-- Endpoints to calculte developers performance
+- Endpoints to calculate developers performance
 - Implementing cache system
 - Custom user model to use email field as username
 - Using a lint action on github
