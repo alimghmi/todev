@@ -32,6 +32,11 @@ python3 manage.py runserver
 ## Authorization
 Todev leverages simple-jwt. All functional endpoints of app (except login/signup) expect you to send a access token as Authorization in the header.
 
+
+## Unittests
+TODO
+
+
 ## Browsable API
 It's possible to test and examine the app within browser, which is provided by DRF UI. In addition following is possible to be managed via a third party app like curl by providing the brearer token as Authorization key in the request header.
 
@@ -74,4 +79,8 @@ DELETE /tasks/<task_id_here>/: Delete a task
 
 ```
 
-
+## Recommended Improvements
+- Endpoints to calculte developers performance
+- Implementing cache system
+- Custom user model to use email field as username
+- Using a lint action on github
