@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "dfb1ccb9-b672-49f4-90c8-aa4957c850a0",
+		"name": "todev",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15942592"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/token/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signup",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"hello\",\r\n    \"password\": \"testtest156\",\r\n    \"email\": \"adbs@yahoo.com\",\r\n    \"first_name\": \"\",\r\n    \"last_name\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/signup/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"signup",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "Get projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/projects/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a project",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"title\": \"My test project\",\r\n    \"description\": \"there is not much to say\",\r\n    \"members\": [\"demo\"],\r\n    \"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/projects/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an specific project",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"title\": \"My test project\",\r\n    \"description\": \"there is not much to say\",\r\n    \"members\": [\"demo\", 1],\r\n    \"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/projects/<project_id_here>/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"projects",
+								"<project_id_here>",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an specific project",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/projects/<project_id_here>",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"projects",
+								"<project_id_here>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an specific project",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/projects/<project_id_here>",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"projects",
+								"<project_id_here>"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Get tasks of a projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/projects/<project_id_here>/tasks/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"projects",
+								"<project_id_here>",
+								"tasks",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get tasks of user in a project",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/projects/<project_id_here>/tasks/?user=demo",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"projects",
+								"<project_id_here>",
+								"tasks",
+								""
+							],
+							"query": [
+								{
+									"key": "user",
+									"value": "demo",
+									"description": "possilbe to use pk, username, or \"me\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"project\": 2,\r\n    \"title\": \"A new task\",\r\n    \"description\": \"\",\r\n    \"status\": \"T\",\r\n    \"assignees\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"project\": 2,\r\n    \"title\": \"A new task\",\r\n    \"description\": \"\",\r\n    \"status\": \"T\",\r\n    \"assignees\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks/<task_id_here>/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"<task_id_here>",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/<task_id_here>/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"<task_id_here>",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{auth}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const loginUrl = pm.collectionVariables.get(\"base_url\") + \"/api/token/\";",
+					"",
+					"pm.sendRequest({",
+					"    url: loginUrl,",
+					"    method: 'POST',",
+					"    header: {",
+					"        'content-type': 'application/json'",
+					"    },",
+					"    body: {",
+					"        mode: 'raw',",
+					"        raw: JSON.stringify({\"username\": pm.collectionVariables.get(\"username\"),",
+					"\t                         \"password\": pm.collectionVariables.get(\"password\")})",
+					"        ",
+					"    }",
+					"}, function (err, res) {",
+					"    pm.collectionVariables.set(\"auth\", res.json().access);",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "auth",
+			"value": ""
+		},
+		{
+			"key": "base_url",
+			"value": "localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "username",
+			"value": "admin",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "password",
+			"type": "string"
+		}
+	]
+}
