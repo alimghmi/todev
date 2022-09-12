@@ -3,6 +3,10 @@
 ## Summary
 todev is a todo app with custom permission clas defind for developers and project manager. They can collaborate with each other on different projects. Each authenticated user can create a project from scratch and become the project manager, add/remove members to/from the project.
 
+## ERD
+![todev ERD](https://github.com/alimghmi/todev/blob/master/doc/todev.png)
+
+
 ## How to run
 Simply via Docker:
 ```
