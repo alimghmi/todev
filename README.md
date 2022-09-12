@@ -33,8 +33,10 @@ python3 manage.py runserver
 Todev leverages simple-jwt. All functional endpoints of app (except login/signup) expect you to send a access token as Authorization in the header.
 
 
-## Unittests
-TODO
+## Testing
+```
+python3 manage.py test
+```
 
 
 ## Browsable API
