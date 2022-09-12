@@ -1,7 +1,7 @@
 # todev
 
 ## Summary
-todev is a todo app with custom permission clas defind for developers and project manager. They can collaborate with each other on different projects. Each authenticated user can create a project from scratch and become the project manager, add/remove members to/from the project.
+todev is a todo app with custom permission class defind for developers and project manager. They can collaborate with each other on different projects. Every authenticated user can create a project from scratch and become the project manager, add/remove members to/from the project.
 
 ## ERD
 ![todev ERD](https://github.com/alimghmi/todev/blob/master/doc/todev.png)
@@ -37,7 +37,7 @@ It's possible to test and examine the app within browser, which is provided by D
 
 
 ## Endpoints
-For further information please check **postman collection** of project, all necessarry fields of each endpoints are documented in details. Postman collection is available [here](https://github.com/alimghmi/todev/blob/master/todev/todev.postman_collection.json). 
+For further information please check **postman collection** of project, all necessarry fields of each endpoints are documented in details. Postman collection is available [here](https://github.com/alimghmi/todev/blob/master/doc/todev.postman_collection.json). 
 
 User-related operations:
 ```
