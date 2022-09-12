@@ -82,11 +82,12 @@ DELETE /tasks/<task_id_here>/: Delete a task
 ## Endpoints Behavior
 
 ### Project Endpoint
-- Every authenticated user can create new project
+- Every authenticated user can create a new project
 - Creator of project is considered as Project Manager
-- Proejc manager has full control over the project
-- Developers (members field) username must be sent on creation
-- Developers have readonly access thus they can't update or remove a project
+- Project manager has full control over the project
+- Developers' (members field) username must be sent on creation
+- Developers have read-only access thus they can't update or remove a project
+- Developers can retrieve use specific or all of the tasks of their project
 - Projects shows up when target user is either a project manager or a developer, otherwise they're not accessable
   
 ### Task Endpoint
