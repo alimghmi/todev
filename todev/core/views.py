@@ -30,7 +30,7 @@ def get_user(pk):
 
 class ProjectViewSet(ModelViewSet):
     """
-    ViewSet to manage all the operations related to project creation and management
+    ViewSet for the operations related to project creation and management
     """
     permission_classes = [permissions.ProjectCustomPermission]
     serializer_class = serializers.ProjectSerializer
