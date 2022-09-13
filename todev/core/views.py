@@ -29,8 +29,10 @@ def get_user(pk):
 
 
 class ProjectViewSet(ModelViewSet):
+    """
+    ViewSet to manage all the operations related to project creation and management
+    """
     permission_classes = [permissions.ProjectCustomPermission]
-
     serializer_class = serializers.ProjectSerializer
 
     def get_queryset(self):
@@ -63,12 +65,18 @@ class ProjectViewSet(ModelViewSet):
 
 
 class CreateTaskAPI(generics.CreateAPIView):
+    """
+    APIView to create tasks for a project
+    """
     queryset = models.Task.objects.all()
     serializer_class = serializers.CreateTaskSerializer
     permission_classes = [IsAuthenticated]
 
 
 class DetailTaskAPI(generics.RetrieveUpdateDestroyAPIView):
+    """
+    APIView to Retrieve, Update and delete a task from a project
+    """
     queryset = models.Task.objects.all()
     serializer_class = serializers.UpdateTaskSerializer
     permission_classes = [permissions.TaskCustomPermission]

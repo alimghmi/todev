@@ -6,6 +6,9 @@ from .serializers import UserSerializer
 
 
 class CreateUserView(CreateAPIView):
+    """
+    APIView for account creation (signup)
+    """
     model = get_user_model()
     permission_classes = [AllowAny]
     serializer_class = UserSerializer
