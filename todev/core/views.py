@@ -75,7 +75,7 @@ class CreateTaskAPI(generics.CreateAPIView):
 
 class DetailTaskAPI(generics.RetrieveUpdateDestroyAPIView):
     """
-    APIView to Retrieve, Update and delete a task from a project
+    APIView to retrieve, update and delete a task from a project
     """
     queryset = models.Task.objects.all()
     serializer_class = serializers.UpdateTaskSerializer
