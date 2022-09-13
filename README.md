@@ -30,7 +30,7 @@ python3 manage.py runserver
  - Please consider adding a *superuser* or create a non-super user via `signup` endpoint. 
 
 ## Authorization
-Todev leverages simple-jwt. All functional endpoints of app (except login/signup) expect you to send a access token as Authorization in the header.
+Todev leverages simple-jwt. All endpoints (except login/signup) expect you to send a access token as Authorization in the header.
 
 
 ## Testing
